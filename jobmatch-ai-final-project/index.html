@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JobMatch AI — ассистент подбора IT-вакансий</title>
+  <meta name="description" content="Финальный проект курса: AI-ассистент для анализа IT-вакансий в Германии, оценки совпадения с профилем кандидата и подготовки отклика." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container header-grid">
+      <a class="brand" href="#top" aria-label="JobMatch AI">
+        <span class="brand-mark">JM</span>
+        <span>
+          <strong>JobMatch AI</strong>
+          <small>career automation demo</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#product">Проект</a>
+        <a href="#demo">Демо</a>
+        <a href="#portfolio">Визитка</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Переключить тему">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Финальный проект курса «Вайб-кодинг»</p>
+          <h1>AI‑ассистент для поиска немецких IT‑вакансий и подготовки отклика</h1>
+          <p class="lead">
+            Сервис помогает IT‑специалисту быстро понять, насколько вакансия подходит под его профиль,
+            увидеть сильные стороны, пробелы и получить черновик персонализированного отклика.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#demo">Открыть демо</a>
+            <a class="button ghost" href="#portfolio">Посмотреть визитку</a>
+          </div>
+          <div class="trust-row" aria-label="Ключевые особенности">
+            <span>Без регистрации</span>
+            <span>Работает в браузере</span>
+            <span>Готово для портфолио</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Краткая статистика проекта">
+          <div class="score-ring" aria-hidden="true"><span>AI</span></div>
+          <h2>Что делает продукт</h2>
+          <ul class="clean-list">
+            <li><span>01</span> Анализирует текст вакансии</li>
+            <li><span>02</span> Сравнивает требования с профилем</li>
+            <li><span>03</span> Показывает совпадение и пробелы</li>
+            <li><span>04</span> Генерирует основу отклика</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section compact" id="product">
+      <div class="container">
+        <div class="section-title">
+          <p class="eyebrow">Смысл проекта</p>
+          <h2>Для кого продукт и какую задачу решает</h2>
+        </div>
+        <div class="cards three">
+          <article class="card">
+            <span class="icon">🎯</span>
+            <h3>Целевая аудитория</h3>
+            <p>IT‑специалисты, которые ищут работу в Германии или международных компаниях и хотят быстрее отбирать подходящие вакансии.</p>
+          </article>
+          <article class="card">
+            <span class="icon">⚙️</span>
+            <h3>Проблема</h3>
+            <p>На ручной анализ вакансий, требований, ключевых слов и адаптацию резюме уходит много времени, а хорошие позиции легко пропустить.</p>
+          </article>
+          <article class="card">
+            <span class="icon">🚀</span>
+            <h3>Решение</h3>
+            <p>Одно окно: вставить вакансию, получить процент совпадения, список сильных аргументов, зоны развития и черновик сообщения рекрутеру.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="demo">
+      <div class="container app-grid">
+        <div class="panel input-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Рабочее демо</p>
+              <h2>Проверить вакансию</h2>
+            </div>
+            <span class="status-pill">MVP</span>
+          </div>
+
+          <label class="field-label" for="sampleSelect">Быстрый пример</label>
+          <select id="sampleSelect" class="field">
+            <option value="0">Cloud Support Engineer — Berlin</option>
+            <option value="1">Linux System Administrator — Hamburg</option>
+            <option value="2">Junior DevOps Engineer — Remote Germany</option>
+          </select>
+
+          <label class="field-label" for="jobText">Текст вакансии</label>
+          <textarea id="jobText" class="field textarea" rows="14" placeholder="Вставьте сюда описание вакансии..."></textarea>
+
+          <div class="button-row">
+            <button class="button primary" type="button" id="analyzeBtn">Проанализировать</button>
+            <button class="button ghost" type="button" id="clearBtn">Очистить</button>
+          </div>
+          <p class="hint">Демо использует локальный алгоритм ключевых слов. В следующей версии его можно подключить к API нейросети, Telegram‑боту и базе вакансий.</p>
+        </div>
+
+        <div class="panel result-panel" aria-live="polite">
+          <div class="result-top">
+            <div>
+              <p class="eyebrow">Результат анализа</p>
+              <h2 id="resultTitle">Готов к проверке</h2>
+            </div>
+            <div class="match-badge">
+              <strong id="matchScore">—</strong>
+              <span>match</span>
+            </div>
+          </div>
+
+          <div class="meter" aria-hidden="true"><span id="meterFill"></span></div>
+
+          <div class="result-grid">
+            <section class="mini-card">
+              <h3>Сильные совпадения</h3>
+              <ul id="strengthsList" class="tag-list empty"><li>Добавьте вакансию и нажмите анализ.</li></ul>
+            </section>
+            <section class="mini-card">
+              <h3>Что усилить</h3>
+              <ul id="gapsList" class="tag-list empty"><li>После анализа появятся рекомендации.</li></ul>
+            </section>
+          </div>
+
+          <section class="mini-card wide">
+            <h3>Рекомендации</h3>
+            <ol id="recommendationsList" class="steps">
+              <li>Вставьте описание вакансии.</li>
+              <li>Получите список аргументов для резюме и отклика.</li>
+            </ol>
+          </section>
+
+          <section class="mini-card wide">
+            <div class="copy-head">
+              <h3>Черновик отклика</h3>
+              <button class="link-button" id="copyPitchBtn" type="button">Скопировать</button>
+            </div>
+            <pre id="pitchText" class="pitch">Здесь появится текст сообщения рекрутеру.</pre>
+          </section>
+
+          <div class="button-row end">
+            <button class="button secondary" type="button" id="downloadReportBtn">Скачать отчёт</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="container portfolio-grid">
+        <div>
+          <p class="eyebrow">Резюме / визитка специалиста</p>
+          <h2>Борис Winebrand</h2>
+          <p class="lead small">
+            IT Infrastructure, System Administration, Cloud & Automation specialist. Помогаю бизнесу поддерживать стабильную инфраструктуру,
+            автоматизировать рутинные процессы и внедрять AI‑инструменты в рабочие процессы.
+          </p>
+          <div class="button-row">
+            <button class="button primary" type="button" id="copyResumeBtn">Скопировать визитку</button>
+            <a class="button ghost" href="#contacts">Связаться</a>
+          </div>
+        </div>
+
+        <aside class="resume-card">
+          <h3>Кратко обо мне</h3>
+          <dl class="facts">
+            <div><dt>Опыт</dt><dd>14+ лет в IT‑инфраструктуре и поддержке</dd></div>
+            <div><dt>Фокус</dt><dd>Linux, Windows, Cloud, DevOps, Automation</dd></div>
+            <div><dt>AI‑практика</dt><dd>Prompt Engineering, AI‑агенты, RAG, автоматизация</dd></div>
+            <div><dt>Формат</dt><dd>Full‑time / Part‑time / Contract, hybrid / remote</dd></div>
+          </dl>
+        </aside>
+      </div>
+
+      <div class="container cards two skills-block">
+        <article class="card">
+          <h3>Что я делаю</h3>
+          <ul class="check-list">
+            <li>Настраиваю и поддерживаю Linux/Windows‑инфраструктуру.</li>
+            <li>Автоматизирую задачи через Bash, PowerShell и Python.</li>
+            <li>Работаю с Git, Docker, CI/CD, облачными платформами.</li>
+            <li>Проектирую AI‑ассистентов и прототипы автоматизации.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Проект в портфолио</h3>
+          <p><strong>JobMatch AI</strong> — веб‑приложение для анализа IT‑вакансий, сравнения требований с профилем кандидата и подготовки первого отклика.</p>
+          <ul class="check-list">
+            <li>Современный интерфейс и адаптивная верстка.</li>
+            <li>Рабочая логика анализа вакансии.</li>
+            <li>Генерация рекомендаций и сообщения рекрутеру.</li>
+            <li>Подготовлено к публикации на GitHub Pages.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section soft" id="roadmap">
+      <div class="container">
+        <div class="section-title">
+          <p class="eyebrow">Развитие продукта</p>
+          <h2>Что можно добавить после сдачи проекта</h2>
+        </div>
+        <div class="roadmap">
+          <div><span>1</span><strong>Импорт вакансий</strong><p>Подключить RSS/API job‑сайтов или загрузку CSV.</p></div>
+          <div><span>2</span><strong>AI‑анализ</strong><p>Подключить LLM для глубокого анализа и адаптации CV.</p></div>
+          <div><span>3</span><strong>Telegram‑бот</strong><p>Отправлять новые вакансии и match‑score прямо в мессенджер.</p></div>
+          <div><span>4</span><strong>Личный кабинет</strong><p>Сохранять вакансии, статусы откликов и историю коммуникации.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#top" aria-label="JobMatch AI">
+          <span class="brand-mark">JM</span>
+          <span><strong>JobMatch AI</strong><small>final project</small></span>
+        </a>
+        <p>Готовый учебный MVP для портфолио: проект + визитка специалиста в одном лендинге.</p>
+      </div>
+      <div class="contact-card">
+        <h2>Контакты</h2>
+        <a href="mailto:boriswinebrand@gmail.com">boriswinebrand@gmail.com</a>
+        <a href="mailto:boris.winebrand.career@gmail.com">boris.winebrand.career@gmail.com</a>
+        <a href="tel:+972504820861">+972 50 482 0861</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Boris Winebrand</span>
+      <a href="#top">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+  <script src="script.js"></script>
+</body>
+</html>
