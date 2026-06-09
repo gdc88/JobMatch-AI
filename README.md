@@ -50,11 +50,11 @@ Current portfolio map:
 - **[AI Automation Ops Lab](https://github.com/gdc88/boris-ai-automation-ops-lab)** — Operational base layer: self-hosted AI automation patterns, Telegram delivery, scheduled agents, browser-assisted workflows, and infrastructure operations thinking.
 - **[Ops Agent Playbook Runner](https://github.com/gdc88/ops-agent-playbook-runner)** — Engineering proof layer: safe, auditable, dry-run-first operations playbooks with evidence bundles and policy controls.
 - **[AI Resume Adapter Bot](https://github.com/gdc88/ai-resume-adapter-bot)** — Career automation layer: ATS/job-description analysis and truthful resume tailoring workflow for the German market.
-- **[JobMatch AI](https://github.com/gdc88/JobMatch-AI)** — Course/final-project layer: static MVP for job-match analysis, recruiter message drafting, and portfolio demonstration.
+- **[JobMatch AI](https://github.com/gdc88/JobMatch-AI)** — Course/final-project layer: static MVP for job-match analysis, outreach draft generation, and portfolio demonstration.
 
 Growth direction:
 
-- Keep public repositories sanitized and recruiter-safe.
+- Keep public repositories sanitized and public-safe.
 - Prefer clear architecture, safety boundaries, screenshots/visuals, and evidence over private operational data.
 - Update each project as the overall system matures: better runbooks, stronger guardrails, clearer German-market positioning, and more polished demos.
-- Use GitHub as the proof layer and LinkedIn as the recruiter funnel once the LinkedIn profile is aligned with the same positioning.
+- Use GitHub as the proof layer for public technical growth.
